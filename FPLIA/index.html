@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="FPLIA effectively integrates fidelity-oriented features and perceptual features to produce realistic and
+          faithful reconstructions for ASISR.">
+  <meta name="keywords"
+    content="Low-level Vision, Arbitrary-Scale Image Super-Resolution, Diffusion, Local Implicit Function, Computer Vision">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FPLIA: Fidelity- and Perception-Aware Local Implicit Attention for Arbitrary-Scale Image Super-Resolution
+  </title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="ai.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">FPLIA: Fidelity- and Perception-Aware Local Implicit Attention for
+              Arbitrary-Scale Image Super-Resolution</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://xusean0118.github.io">Yu-Syuan Xu</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                Hao-Lun Sun<sup>2</sup>,
+              </span>
+              <span class="author-block">
+                Hao-Wei Chen<sup>1</sup>,
+              </span>
+              <span class="author-block">
+                Hsien-Kai Kuo<sup>2</sup>,
+              </span>
+              <span class="author-block">
+                Chun-Yi Lee<sup>1</sup>,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>National Taiwan University,</span>
+              <span class="author-block"><sup>2</sup>MediaTek Inc.</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2606.21910" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://youtu.be/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/XUSean0118/FPLIA"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/teaser.mp4" type="video/mp4">
+        </video> -->
+        <img src="./static/images/intro.png" alt="intro" style="height: 100%;">
+        <h2 class="subtitle has-text-centered">
+          FPLIA effectively leverages the complementary advantages of regression-based and diffusion-based methods to
+          produce realistic and faithful reconstructions for ASISR.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <h3>DIV2Kx6</h3>
+            <img src="./static/images/div2kx6.png" alt="DIV2Kx6">
+          </div>
+          <div class="item">
+            <h3>Set5x6</h3>
+            <img src="./static/images/set5x6.png" alt="Set5x6">
+          </div>
+          <div class="item">
+            <h3>Set14x6</h3>
+            <img src="./static/images/set14x6.png" alt="Set14x6">
+          </div>
+          <div class="item">
+            <h3>B100x6</h3>
+            <img src="./static/images/b100x6.png" alt="B100x6">
+          </div>
+          <div class="item">
+            <h3>Urban100x6</h3>
+            <img src="./static/images/urban100x6.png" alt="Urban100">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Arbitrary-scale image super-resolution (ASISR) aims to reconstruct high-resolution images from
+              low-resolution inputs over a continuous range of upscaling factors. While traditional pixel-regression
+              approaches often produce overly smooth results that lack realistic details, recent diffusion methods can
+              produce sharper and more realistic textures. However, these diffusion techniques frequently introduce the
+              risk of structural hallucinations. To address these issues, we propose Fidelity- and Perception-Aware
+              Local Implicit Attention (FPLIA), a framework that effectively integrates fidelity-oriented features into
+              a diffusion pipeline to produce realistic and faithful reconstructions for ASISR. We introduce a Fidelity
+              and Perception Attention Module (FPAM), which applies both self-attention and cross-attention to
+              fidelity-oriented and perceptual features to enhance representational capacity. To further exploit their
+              complements, we design a Fidelity and Perception Select Module (FPSM) that adaptively selects the most
+              representative features for RGB values prediction. We conduct extensive experiments to validate the
+              effectiveness of these components. Both qualitative and quantitative results show that FPLIA delivers
+              superior perceptual realism while maintaining reconstruction accuracy on standard ASISR benchmarks.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/2hK-rtnH45Q?si=pWzqKQeaBBywtaGk" frameborder="0"
+              allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Framework Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              <img src="./static/images/framework.png" alt="Framework Overview"
+                style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Result</h2>
+          <div class="content has-text-justified">
+            <p>
+              <img src="./static/images/exp.png" alt="Result"
+                style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Continous Result</h2>
+          <div class="content has-text-justified">
+            <p>
+              <img src="./static/images/continue.png" alt="Continous Result"
+                style="max-width:100%; height:auto; display:block; margin-left:auto; margin-right:auto;">
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
+              More results can be found in our <a href="https://arxiv.org/abs/2606.21910">paper</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{xu2026fplia,
+          author    = {Yu-Syuan Xu and Hao-Lun Sun and Hao-Wei Chen and Hsien-Kai Kuo and Chun-Yi Lee},
+          title     = {FPLIA: Fidelity- and Perception-Aware Local Implicit Attention for Arbitrary-Scale Image Super-Resolution},
+          journal   = {European Conference on Computer Vision (ECCV)},
+          year      = {2026},
+        }</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <!-- <div class="content has-text-centered">
+        <a class="icon-link" href="https://github.com/XUSean0118/FPLIA" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div> -->
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              Original website <a href="https://github.com/nerfies/nerfies.github.io">source code</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
